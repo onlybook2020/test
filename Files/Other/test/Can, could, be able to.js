@@ -43,14 +43,14 @@ var finalMess = '';
 var valid;
 var nScore;
 var maxScore;
-var questions=1;
+var questions=6;
 var falseQuests = 0;
 var invisibleQuests = 0;
 var qstHead;
 var groups;
-var quizTitle="Miss Saule present simple test";
+var quizTitle="Miss Saule Can, could, be able to, test";
 var printCpRg=1;
-var filename = 'present simple';
+var filename = 'Can, could, be able to';
 
 var topChartFile='';
 var pesi;
@@ -2514,6 +2514,26 @@ function completeInitValuate() {
    allAnsReport[0] = new initValuate1();
    doValuate(0,document.domanda.score1,document.domanda.risposta1);
  }
+ if (valid[1]==0) {
+   allAnsReport[1] = new initValuate2();
+   doValuate(1,document.domanda.score2,document.domanda.risposta2);
+ }
+ if (valid[2]==0) {
+   allAnsReport[2] = new initValuate3();
+   doValuate(2,document.domanda.score3,document.domanda.risposta3);
+ }
+ if (valid[3]==0) {
+   allAnsReport[3] = new initValuate4();
+   doValuate(3,document.domanda.score4,document.domanda.risposta4);
+ }
+ if (valid[4]==0) {
+   allAnsReport[4] = new initValuate5();
+   doValuate(4,document.domanda.score5,document.domanda.risposta5);
+ }
+ if (valid[5]==0) {
+   allAnsReport[5] = new initValuate6();
+   doValuate(5,document.domanda.score6,document.domanda.risposta6);
+ }
  CountAnswers();
 }
 
@@ -2588,11 +2608,21 @@ function init_valid()
  window.status='';
 }
 function initShortQuestion() {
- qstHead[0]="Chosse the correct present simple forms of  To Be to  for the gaps below.";
+ qstHead[0]="Choose the correct form of can, could, be able to affirmative or negative. ...";
+ qstHead[1]="Choose the correct option/s for each gap below. Use can or could if possibl...";
+ qstHead[2]="2 Not all countries          to manufacture high-quality products.";
+ qstHead[3]="She fell into the river, but fortunately the firefighters       rescue her....";
+ qstHead[4]="They    unlock the door and escape. ";
+ qstHead[5]="When you called yesterday I               pick it up because I was in the s...";
 }
 
 function initQuestionRemark() {
  qstRem[0]="";
+ qstRem[1]="";
+ qstRem[2]="";
+ qstRem[3]="";
+ qstRem[4]="";
+ qstRem[5]="";
 }
 
 function CustomComputeFinalMark(sommatoria, sommaPesi) {
@@ -2609,18 +2639,18 @@ function ManageRetire() {
 function GetTypeOfSubstitution(aMark) { return 0; }
 
 function Constructor() {
-  valid = new init_array(0);
-  nScore = new init_array(0);
-  maxScore = new init_array(0);
-  qstHead = new init_array("");
-  qstRem = new init_array("");
+  valid = new init_array(0,0,0,0,0,0);
+  nScore = new init_array(0,0,0,0,0,0);
+  maxScore = new init_array(0,0,0,0,0,0);
+  qstHead = new init_array("","","","","","");
+  qstRem = new init_array("","","","","","");
   initShortQuestion();
   initQuestionRemark();
-  groups = new init_array(0);
-  pesi = new init_array(0);
-  allAnsReport = new init_array(1);
-  ordineDomande = new init_array(0);
-  typeOfQuest = new init_array(4);
-  isQuestCustom = new init_array(0);
-  omitPoint = new init_array(0);
+  groups = new init_array(0,0,0,0,0,0);
+  pesi = new init_array(0,0,0,0,0,0);
+  allAnsReport = new init_array(6);
+  ordineDomande = new init_array(0,1,2,3,4,5);
+  typeOfQuest = new init_array(4,1,1,1,1,1);
+  isQuestCustom = new init_array(0,0,0,0,0,0);
+  omitPoint = new init_array(0,0,0,0,0,0);
 }
